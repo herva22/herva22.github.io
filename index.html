@@ -190,34 +190,56 @@
         left: 100%;
       }
     }
+
+    /* Menyembunyikan setiap menu */
+    .section {
+      display: none;
+    }
   </style>
 </head>
 <body>
 
   <!-- Menu -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">Tentang</a>
-    <a href="#contact">Kontak</a>
+    <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+    <a href="javascript:void(0)" onclick="showSection('about')">Tentang</a>
+    <a href="javascript:void(0)" onclick="showSection('contact')">Kontak</a>
   </nav>
 
   <!-- Bagian-bagian di halaman -->
-  <section id="home">
+  <section id="home" class="section">
     <div>Selamat Datang!</div>
   </section>
 
-  <section id="about">
-    <h2 style="color:white; text-align:center; padding-top:100px;">Tentang Kami</h2>
+  <section id="about" class="section">
+    <h2 style="color:white; text-align:center; padding-top:100px;">Tentang saya</h2>
     <p style="text-align:center;">Saya Herva Sulistia dari Prodi Teknik Informatika Universitas Riau.</p>
   </section>
 
-  <section id="contact">
-    <h2 style="color:white; text-align:center; padding-top:100px;">Kontak</h2>
+  <section id="contact" class="section">
+    <h2 style="color:white; text-align:center; padding-top:100px;">Contact</h2>
     <a href="https://instagram.com/hervasulistia22" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Logo">
       <span style="color:white;">hervasulistia22</span>
     </a>
   </section>
+
+  <script>
+    // Fungsi untuk menampilkan bagian yang sesuai
+    function showSection(sectionId) {
+      // Menyembunyikan semua bagian
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // Menampilkan bagian yang dipilih
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    // Menampilkan Home secara default
+    showSection('home');
+  </script>
 
 </body>
 </html>
