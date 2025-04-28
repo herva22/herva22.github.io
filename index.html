@@ -135,44 +135,6 @@
         opacity: 0;
       }
     }
-
-    /* Awan */
-    .cloud {
-      width: 200px;
-      height: 100px;
-      background: #bbb;
-      border-radius: 100px;
-      position: absolute;
-      top: 50px;
-      left: -250px;
-      animation: moveClouds 80s linear infinite;
-      box-shadow: 
-        60px 20px 0px 0px #bbb,
-        120px 10px 0px 0px #bbb,
-        180px 30px 0px 0px #bbb;
-      opacity: 0.4;
-    }
-
-    .cloud:nth-child(2) {
-      top: 150px;
-      animation-duration: 100s;
-      transform: scale(0.8);
-    }
-
-    .cloud:nth-child(3) {
-      top: 250px;
-      animation-duration: 120s;
-      transform: scale(0.6);
-    }
-
-    @keyframes moveClouds {
-      0% {
-        left: -300px;
-      }
-      100% {
-        left: 100%;
-      }
-    }
   </style>
 </head>
 <body>
@@ -202,16 +164,17 @@
     </a>
   </section>
 
-  <!-- Bintang dan Awan -->
-  <div class="star" style="top: 10px; left: 10px;"></div>
-  <div class="star" style="top: 30px; left: 200px;"></div>
-  <div class="star" style="top: 60px; left: 400px;"></div>
-  <div class="shooting-star"></div>
-
-  <!-- Cloud Animation -->
-  <div class="cloud"></div>
-  <div class="cloud"></div>
-  <div class="cloud"></div>
+  <!-- Bintang Jatuh (Diperbanyak) -->
+  <div class="shooting-star" style="top: 50px; left: 100px;"></div>
+  <div class="shooting-star" style="top: 150px; left: 300px;"></div>
+  <div class="shooting-star" style="top: 250px; left: 500px;"></div>
+  <div class="shooting-star" style="top: 350px; left: 700px;"></div>
+  <div class="shooting-star" style="top: 450px; left: 900px;"></div>
+  <div class="shooting-star" style="top: 550px; left: 1100px;"></div>
+  <div class="shooting-star" style="top: 600px; left: 1200px;"></div>
+  <div class="shooting-star" style="top: 700px; left: 1400px;"></div>
+  <div class="shooting-star" style="top: 800px; left: 1500px;"></div>
+  <div class="shooting-star" style="top: 900px; left: 1700px;"></div>
 
   <script>
     // Fungsi untuk menampilkan bagian yang sesuai
