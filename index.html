@@ -1,29 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Awan Bergerak</title>
+  <title>Animasi Awan + Elemen Alam</title>
   <style>
-    body {
+    body, html {
       margin: 0;
+      padding: 0;
+      height: 100%;
       overflow: hidden;
-      background: linear-gradient(to top, #87CEEB, #ffffff);
-      height: 100vh;
+      background: linear-gradient(to top, #87ceeb, #ffffff);
+      position: relative;
     }
 
+    /* Matahari */
+    .sun {
+      width: 100px;
+      height: 100px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: 50px;
+      right: 100px;
+      box-shadow: 0 0 30px 10px rgba(255, 223, 0, 0.5);
+    }
+
+    /* Gunung */
+    .mountain {
+      width: 0;
+      height: 0;
+      border-left: 200px solid transparent;
+      border-right: 200px solid transparent;
+      border-bottom: 200px solid #556B2F;
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+    }
+
+    .mountain.small {
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 150px solid #6B8E23;
+      left: 300px;
+      bottom: 70px;
+    }
+
+    /* Rumput */
+    .grass {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      background: #228B22;
+    }
+
+    /* Awan */
     .cloud {
       width: 200px;
-      height: 60px;
+      height: 100px;
       background: #fff;
       border-radius: 100px;
       position: absolute;
       top: 50px;
       left: -250px;
-      box-shadow: 
-        60px 10px 0 0 #fff,
-        120px 10px 0 0 #fff;
       animation: moveClouds 60s linear infinite;
+      box-shadow: 
+        60px 20px 0px 0px #fff,
+        120px 10px 0px 0px #fff,
+        180px 30px 0px 0px #fff;
     }
 
     .cloud:nth-child(2) {
@@ -42,17 +87,70 @@
 
     @keyframes moveClouds {
       0% {
-        left: -250px;
+        left: -300px;
       }
       100% {
         left: 100%;
       }
     }
+
+    /* Burung */
+    .bird {
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      position: absolute;
+      top: 120px;
+      left: -30px;
+      animation: flyBird 30s linear infinite;
+    }
+
+    .bird::before,
+    .bird::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid black;
+      border-radius: 50%;
+      transform: rotate(45deg);
+      border-bottom: none;
+      border-left: none;
+    }
+
+    .bird::after {
+      left: 10px;
+    }
+
+    @keyframes flyBird {
+      0% {
+        left: -50px;
+        top: 100px;
+      }
+      50% {
+        top: 80px;
+      }
+      100% {
+        left: 100%;
+        top: 100px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <div class="sun"></div>
+  
+  <div class="mountain"></div>
+  <div class="mountain small"></div>
+  
+  <div class="grass"></div>
+
   <div class="cloud"></div>
   <div class="cloud"></div>
   <div class="cloud"></div>
+
+  <div class="bird"></div>
+
 </body>
 </html>
