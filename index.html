@@ -3,27 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Animasi Awan + Elemen Alam</title>
+  <title>Animasi Malam Hari</title>
   <style>
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
-      background: linear-gradient(to top, #87ceeb, #ffffff);
+      background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
       position: relative;
     }
 
-    /* Matahari */
-    .sun {
-      width: 100px;
-      height: 100px;
-      background: yellow;
+    /* Bulan */
+    .moon {
+      width: 80px;
+      height: 80px;
+      background: #f0e68c;
       border-radius: 50%;
       position: absolute;
-      top: 50px;
-      right: 100px;
-      box-shadow: 0 0 30px 10px rgba(255, 223, 0, 0.5);
+      top: 60px;
+      right: 120px;
+      box-shadow: 0 0 20px 10px rgba(240, 230, 140, 0.5);
+    }
+
+    /* Bayangan Bulan (buat efek sabit) */
+    .moon::after {
+      content: '';
+      width: 80px;
+      height: 80px;
+      background: #2c5364;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 20px;
+    }
+
+    /* Bintang */
+    .star {
+      width: 2px;
+      height: 2px;
+      background: white;
+      position: absolute;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
     }
 
     /* Gunung */
@@ -32,7 +59,7 @@
       height: 0;
       border-left: 200px solid transparent;
       border-right: 200px solid transparent;
-      border-bottom: 200px solid #556B2F;
+      border-bottom: 200px solid #2f4f4f;
       position: absolute;
       bottom: 50px;
       left: 50px;
@@ -41,7 +68,7 @@
     .mountain.small {
       border-left: 150px solid transparent;
       border-right: 150px solid transparent;
-      border-bottom: 150px solid #6B8E23;
+      border-bottom: 150px solid #556b2f;
       left: 300px;
       bottom: 70px;
     }
@@ -52,36 +79,35 @@
       bottom: 0;
       width: 100%;
       height: 80px;
-      background: #228B22;
+      background: #013220;
     }
 
     /* Awan */
     .cloud {
       width: 200px;
       height: 100px;
-      background: #fff;
+      background: #bbb;
       border-radius: 100px;
       position: absolute;
       top: 50px;
       left: -250px;
-      animation: moveClouds 60s linear infinite;
+      animation: moveClouds 80s linear infinite;
       box-shadow: 
-        60px 20px 0px 0px #fff,
-        120px 10px 0px 0px #fff,
-        180px 30px 0px 0px #fff;
+        60px 20px 0px 0px #bbb,
+        120px 10px 0px 0px #bbb,
+        180px 30px 0px 0px #bbb;
+      opacity: 0.5;
     }
 
     .cloud:nth-child(2) {
       top: 150px;
-      animation-duration: 80s;
-      opacity: 0.8;
+      animation-duration: 100s;
       transform: scale(0.8);
     }
 
     .cloud:nth-child(3) {
       top: 250px;
-      animation-duration: 100s;
-      opacity: 0.6;
+      animation-duration: 120s;
       transform: scale(0.6);
     }
 
@@ -93,64 +119,29 @@
         left: 100%;
       }
     }
-
-    /* Burung */
-    .bird {
-      width: 20px;
-      height: 20px;
-      background: transparent;
-      position: absolute;
-      top: 120px;
-      left: -30px;
-      animation: flyBird 30s linear infinite;
-    }
-
-    .bird::before,
-    .bird::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border: 2px solid black;
-      border-radius: 50%;
-      transform: rotate(45deg);
-      border-bottom: none;
-      border-left: none;
-    }
-
-    .bird::after {
-      left: 10px;
-    }
-
-    @keyframes flyBird {
-      0% {
-        left: -50px;
-        top: 100px;
-      }
-      50% {
-        top: 80px;
-      }
-      100% {
-        left: 100%;
-        top: 100px;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <div class="sun"></div>
-  
+  <div class="moon"></div>
+
+  <!-- Banyak bintang -->
+  <div class="star" style="top: 20px; left: 40px;"></div>
+  <div class="star" style="top: 80px; left: 120px;"></div>
+  <div class="star" style="top: 50px; left: 200px;"></div>
+  <div class="star" style="top: 150px; left: 300px;"></div>
+  <div class="star" style="top: 100px; left: 500px;"></div>
+  <div class="star" style="top: 30px; left: 700px;"></div>
+  <div class="star" style="top: 170px; left: 900px;"></div>
+
   <div class="mountain"></div>
   <div class="mountain small"></div>
-  
+
   <div class="grass"></div>
 
   <div class="cloud"></div>
   <div class="cloud"></div>
   <div class="cloud"></div>
-
-  <div class="bird"></div>
 
 </body>
 </html>
