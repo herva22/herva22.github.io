@@ -39,6 +39,11 @@
       text-decoration: underline;
     }
 
+    /* Menampilkan bagian yang berbeda */
+    .section {
+      display: none;
+    }
+
     /* Bagian Animasi Selamat Datang */
     #home {
       height: 100vh;
@@ -49,6 +54,7 @@
       color: white;
       font-size: 3em;
       animation: welcomeText 3s ease-in-out infinite;
+      text-align: center;
     }
 
     @keyframes welcomeText {
@@ -82,30 +88,6 @@
       width: 40px;
       height: 40px;
       margin-right: 10px;
-    }
-
-    /* Bulan */
-    .moon {
-      width: 80px;
-      height: 80px;
-      background: #f0e68c;
-      border-radius: 50%;
-      position: absolute;
-      top: 60px;
-      right: 120px;
-      box-shadow: 0 0 20px 10px rgba(240, 230, 140, 0.5);
-    }
-
-    /* Bayangan Bulan (efek sabit) */
-    .moon::after {
-      content: '';
-      width: 80px;
-      height: 80px;
-      background: #2c5364;
-      border-radius: 50%;
-      position: absolute;
-      top: 0;
-      left: 20px;
     }
 
     /* Bintang biasa */
@@ -191,11 +173,6 @@
         left: 100%;
       }
     }
-
-    /* Menyembunyikan setiap menu */
-    .section {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -224,6 +201,17 @@
       <span style="color:white;">hervasulistia22</span>
     </a>
   </section>
+
+  <!-- Bintang dan Awan -->
+  <div class="star" style="top: 10px; left: 10px;"></div>
+  <div class="star" style="top: 30px; left: 200px;"></div>
+  <div class="star" style="top: 60px; left: 400px;"></div>
+  <div class="shooting-star"></div>
+
+  <!-- Cloud Animation -->
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
 
   <script>
     // Fungsi untuk menampilkan bagian yang sesuai
